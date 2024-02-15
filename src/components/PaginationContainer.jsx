@@ -11,7 +11,7 @@ const PaginationContainer = () => {
   navigate(`${pathname}?${searchParams.toString()}`)
  }
  const { meta } = useLoaderData();
- console.log(meta);
+
  const { pageCount, pageSize, page } = meta.pagination;
  return (
   <div className="flex  justify-end text-lg rounded-lg mt-16">
