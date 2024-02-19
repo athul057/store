@@ -3,6 +3,7 @@ import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import NavLinks from "./NavLinks";
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
 const themes = {
  light: 'light',
@@ -30,7 +31,8 @@ const Navbar = () => {
 
  }, [theme]);
 
-
+ const amount = useSelector((state) => state.cartstate.itemsInCart);
+ console.log(amount);
  return (
   <nav className="bg-base-200">
    <div className="navbar align-element">
@@ -88,7 +90,7 @@ const Navbar = () => {
 
      <div className="relative">
       <NavLink to='/cart' className='btn btn-ghost btn-circle btn-md'><BsCart3 className="h-6 w-6" />
-       <span className="absolute -top-1 -end-1 bg-secondary w-6 h-6 rounded-lg flex items-center justify-center border-gray-200 text-xs font-bold text-white">1</span></NavLink>
+       <span className="absolute -top-1 -end-1 bg-secondary w-6 h-6 rounded-lg flex items-center justify-center border-gray-200 text-xs font-bold text-white">{amount}</span></NavLink>
 
       {/* CAN BE USED IN DAISY UI INDICATOR...... */}
 

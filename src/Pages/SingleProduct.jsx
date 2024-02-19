@@ -3,9 +3,12 @@ import { FeaturedProducts } from "../components";
 import { customFetch } from "../utils";
 import { Link, useLoaderData } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/cart/Cartslice";
 
 
 export const loader = async ({ params }) => {
+
 
  //THROUGH THIS params   FUCTION WE CAN ACCESS THE UNIQUE ID OF EVERY PRODUCT  IN THE app.jsx we used the id as the path that's why we using params.id (look in app.jsx the axios path will be 'products/:id' for the single product page )
 
@@ -15,16 +18,33 @@ export const loader = async ({ params }) => {
 }
 const SingleProduct = () => {
 
-
+ const dispath = useDispatch();
  const { product } = useLoaderData();
+ console.log(product);
 
  const { image, description, title, company, price, colors } = product.attributes;
  const [myColor, setMyColor] = useState(colors[0]);
  const [amount, setAmount] = useState(1);
 
+ const cartProduct = {
+  cartId: product.id + myColor,
+  amount,
+  productId: product.id,
+  color: myColor,
+  image,
+  title,
+  company,
+  price
+ }
+
+ const addToCart = () => {
+  dispath(addItem(cartProduct))
+ }
+
  const handleAmount = (e) => {
   setAmount(parseInt(e.target.value))
  }
+
 
  return (
   <>
@@ -70,7 +90,7 @@ const SingleProduct = () => {
       <option value={2}>2</option>
       <option value={3}>3</option>
      </select>
-     <button className="btn btn-secondary block tracking-wider font-medium">Add to bag</button>
+     <button className="btn btn-secondary block tracking-wider font-medium" onClick={addToCart}>Add to bag</button>
 
 
     </div>
