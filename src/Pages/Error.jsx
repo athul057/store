@@ -1,4 +1,4 @@
-import { Link, useRouteError } from "react-router-dom";
+import { Link, useRouteError, NavLink } from "react-router-dom";
 
 
 const Error = () => {
