@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { Cart } from "../../Pages";
 
 
 
@@ -31,7 +32,8 @@ const userSlice = createSlice({
    console.log("login")
   },
   logoutUser: (state, action) => {
-   console.log("logout")
+   state.user = null;
+   localStorage.removeItem('cart');
   },
   toggleTheme: (state, action) => {
    const { light, dark } = themes;
