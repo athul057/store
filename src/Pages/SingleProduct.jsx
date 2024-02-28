@@ -1,14 +1,15 @@
 import axios from "axios";
 import { FeaturedProducts } from "../components";
 import { customFetch } from "../utils";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/cart/Cartslice";
 
 
-export const loader = async ({ params }) => {
-
+export const loader = async (data) => {
+ console.log("data is", data);
+ const { params } = data;
 
  //THROUGH THIS params   FUCTION WE CAN ACCESS THE UNIQUE ID OF EVERY PRODUCT  IN THE app.jsx we used the id as the path that's why we using params.id (look in app.jsx the axios path will be 'products/:id' for the single product page )
 
@@ -17,6 +18,7 @@ export const loader = async ({ params }) => {
  return { product: resp.data.data };
 }
 const SingleProduct = () => {
+
 
  const dispath = useDispatch();
  const { product } = useLoaderData();

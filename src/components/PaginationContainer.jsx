@@ -2,6 +2,7 @@ import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 
 const PaginationContainer = () => {
  const location = useLocation();
+ console.log(location);
  const { pathname, search } = location;
  const navigate = useNavigate();
 

@@ -7,8 +7,8 @@ export const loader = async ({ request }) => {
 
 
  //..........................................................
- // const params = new URL(request.url).searchParams;
- // const search = params.get('search');
+ // const paramss = new URL(request.url).searchParams;
+ // const search = paramss.get('search');
  // console.log(search);
  //...........................................................
 

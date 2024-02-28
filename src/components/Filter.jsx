@@ -1,4 +1,4 @@
-import { Form, Link, useLoaderData } from "react-router-dom";
+import { Form, Link, useLoaderData, useLocation } from "react-router-dom";
 import FormInput from "./FormInput";
 import FormSelect from "./FormSelect";
 import FormRange from "./FormRange";
@@ -8,7 +8,8 @@ const Filter = () => {
 
  const { meta, params } = useLoaderData();
  const { categories, companies } = meta;
-
+ const location = useLocation();
+ console.log(location);
 
  return (
   <Form className="grid content-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center bg-neutral-800 mt-6 p-8 rounded-lg">
