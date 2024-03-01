@@ -1,8 +1,27 @@
-import { Form, Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import { SubmitBtn } from "../components";
+import { customFetch } from "../utils";
+
+export const action = async ({ request }) => {
+ const formData = await request.formData();
+ const data = Object.fromEntries(formData);
 
 
+
+ try {
+  const response = await customFetch.post('/auth/local/register', data);
+
+  return redirect('/login');
+ }
+ catch (error) {
+  console.log(error);
+  const errorMsg = error?.response?.data?.error?.message;
+  console.log(errorMsg);
+  return null;
+ }
+
+}
 
 const Register = () => {
  return (

@@ -6,6 +6,17 @@ const Cart = () => {
  const { cartItems, cartTotal, taxValue, shipping, orderTotal } = useSelector((state) => {
   return state.cartstate;
  })
+
+
+ if (cartItems.length == 0) {
+
+  return <section className="min-h-screen flex flex-col items-center justify-center ">
+   <h1 className=" text-4xl mb-28">Your cart is empty.....</h1>
+  </section>
+
+
+
+ }
  return <main>
   <h1 className="mt-8 text-4xl border-b pb-8">Shopping Cart</h1>
   <div className="grid gap-8 mt-6 text-2xl font-normal lg:grid-cols-12">

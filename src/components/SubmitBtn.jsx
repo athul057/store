@@ -7,7 +7,7 @@ const SubmitBtn = ({ text }) => {
  return (
   <button type='submit' className="btn btn-primary btn-block" disabled={isSubmitting}>
    {
-    isSubmitting ? <span class="loading loading-spinner loading-xs"></span> : text || 'Submit'
+    isSubmitting ? <span className="loading loading-spinner loading-xs"></span> : text || 'Submit'
    }
   </button>
  )
