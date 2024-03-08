@@ -5,6 +5,7 @@ import { customFetch } from "../utils"
 
 export const loader = async ({ request }) => {
 
+ console.log("reeq is ", request);
 
  //..........................................................
  // const paramss = new URL(request.url).searchParams;
@@ -16,6 +17,7 @@ export const loader = async ({ request }) => {
 
  const params = Object.fromEntries([...new URL(request.url).searchParams.entries()])
 
+ //https://strapi-store-server.onrender.com/api/products?page=2  for getting "?page-2" these we will do like this.....
 
  const resp = await customFetch('/products', { params });
 

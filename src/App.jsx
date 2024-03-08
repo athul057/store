@@ -4,10 +4,14 @@ import { ErrorElement } from './components';
 import { loader as landingLoader } from './Pages/Landing'
 import { loader as singleProductLoader } from './Pages/SingleProduct'
 import { loader as allProducts } from './Pages/Products';
+import { loader as checkoutLoader } from './Pages/Checkout';
+import { loader as orderLoader } from './Pages/Orders';
+
 
 import { store } from './store';
 import { action as registerAction } from './Pages/Register';
 import { action as loginAction } from './Pages/Login';
+import { action as checkoutAction } from './Pages/Checkout';
 
 const router = createBrowserRouter([
 
@@ -35,6 +39,8 @@ const router = createBrowserRouter([
       {
         path: 'checkout',
         element: <Checkout />,
+        loader: checkoutLoader(store),
+        action: checkoutAction(store),
       },
       {
         path: 'about',
@@ -44,11 +50,10 @@ const router = createBrowserRouter([
       {
         path: 'orders',
         element: <Orders />,
+        loader: orderLoader(store),
+
       },
-      {
-        path: 'products',
-        element: <Products />,
-      },
+
       {
         path: 'products/:id',
         element: <SingleProduct />,

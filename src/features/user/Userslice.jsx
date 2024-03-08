@@ -36,7 +36,7 @@ const userSlice = createSlice({
   },
   logoutUser: (state, action) => {
    state.user = null;
-   localStorage.removeItem('cart');
+   localStorage.removeItem('user');
   },
   toggleTheme: (state, action) => {
    const { light, dark } = themes;

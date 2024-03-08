@@ -18,7 +18,7 @@ const Navbar = () => {
 
 
  const amount = useSelector((state) => state.cartstate.itemsInCart);
- console.log(amount);
+
  return (
   <nav className="bg-base-200">
    <div className="navbar align-element">

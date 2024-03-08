@@ -8,6 +8,9 @@ import { addItem } from "../features/cart/Cartslice";
 
 
 export const loader = async (data) => {
+
+ //Through this data we can access the information that we passed through the url see it in the app.jsx products/:id we can acces the information in the /:id throught this data.
+
  console.log("data is", data);
  const { params } = data;
 
@@ -21,6 +24,9 @@ const SingleProduct = () => {
 
 
  const dispath = useDispatch();
+
+ //By using useLoaderData() hook we will get thing that we returned from the loader function that I wrote in the above .So here we will get the product that has returned from the loader.
+
  const { product } = useLoaderData();
  console.log(product);
 

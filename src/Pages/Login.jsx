@@ -40,6 +40,7 @@ const Login = () => {
     password: 'secret',
    })
    dispatch(loginUser(response.data));
+
    return navigate('/');
 
   } catch (error) {

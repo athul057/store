@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
+import { CartTotal } from "../components";
 import CartItems from "../components/CartItems";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 
@@ -29,7 +31,7 @@ const Cart = () => {
 
    </div>
    <div className="lg:col-span-4 ">
-    <div className="p-7 border border-neutral-700 bg-base-200/55 rounded-xl font-medium text-sm">
+    {/* <div className="p-7 border border-neutral-700 bg-base-200/55 rounded-xl font-medium text-sm">
      <div className="flex justify-between  border-b-2 py-2">
       <h1>SubTotal</h1>
       <h1>{`$${cartTotal}`}</h1>
@@ -46,8 +48,11 @@ const Cart = () => {
       <h1>Order Total</h1>
       <h1>{`$${orderTotal}`}</h1>
      </div>
-    </div>
-    <button className="btn btn-secondary btn-block mt-8 uppercase">Login to checkout</button>
+    </div> */}
+
+    <CartTotal />
+
+    <Link to='/checkout' className="btn btn-secondary btn-block mt-8 uppercase">Login to checkout</Link>
 
 
 

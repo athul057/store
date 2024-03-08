@@ -29,7 +29,7 @@ const ProdctsContainer = () => {
     </div>
    </div>
    {
-    total == 0 ? <h1>Sorry we can' fine any Item</h1> : layout == 'grid' ? <ProductsGrid /> : <ProductsList />
+    total == 0 ? <h1>Sorry we can' find any Item</h1> : layout == 'grid' ? <ProductsGrid /> : <ProductsList />
    }
   </>
 
